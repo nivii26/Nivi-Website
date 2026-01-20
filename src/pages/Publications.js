@@ -62,39 +62,39 @@ const conferences = [
   },
 ];
 
-const presentations = [
-  {
-    title: "PEARC ’25 Lightning Talk",
-    venue: "PEARC ’25",
-    year: "2025",
-    type: "Lightning Talk",
-    description:
-      "Presented a short lightning talk highlighting applied work at the intersection of HPC and AI systems.",
-    media: {
-      image: "/pearc-lightning-talk.png", // ✅ update to your real path
-      alt: "PEARC ’25 lightning talk slide",
-    },
-    link: "",
-  },
-  {
-    title: "SC25 Booth Talk",
-    venue: "Supercomputing 2025 (SC25)",
-    year: "2025",
-    type: "Booth Talk",
-    description:
-      "Delivered a booth talk/demo focused on practical HPC + AI infrastructure workflows and system design.",
-    link: "",
-  },
-  {
-    title: "ICOPEX Presentation: Leveraging AI to Drive Operational Excellence",
-    venue: "10th International Conference on Operational Excellence (ICOPEX)",
-    year: "2025",
-    type: "Conference Presentation",
-    description:
-      "Presented the conference paper on applying AI to operational excellence in manufacturing, emphasizing real-world integration and impact.",
-    link: "",
-  },
-];
+// const presentations = [
+//   {
+//     title: "PEARC ’25 Lightning Talk",
+//     venue: "PEARC ’25",
+//     year: "2025",
+//     type: "Lightning Talk",
+//     description:
+//       "Presented a short lightning talk highlighting applied work at the intersection of HPC and AI systems.",
+//     media: {
+//       image: "/pearc-lightning-talk.png", // ✅ update to your real path
+//       alt: "PEARC ’25 lightning talk slide",
+//     },
+//     link: "",
+//   },
+//   {
+//     title: "SC25 Booth Talk",
+//     venue: "Supercomputing 2025 (SC25)",
+//     year: "2025",
+//     type: "Booth Talk",
+//     description:
+//       "Delivered a booth talk/demo focused on practical HPC + AI infrastructure workflows and system design.",
+//     link: "",
+//   },
+//   {
+//     title: "ICOPEX Presentation: Leveraging AI to Drive Operational Excellence",
+//     venue: "10th International Conference on Operational Excellence (ICOPEX)",
+//     year: "2025",
+//     type: "Conference Presentation",
+//     description:
+//       "Presented the conference paper on applying AI to operational excellence in manufacturing, emphasizing real-world integration and impact.",
+//     link: "",
+//   },
+// ];
 
 export default function Publications() {
   return (
