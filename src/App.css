@@ -41,7 +41,15 @@
   transform: scale(0.75);
   transform-origin: top center;
 
-  width: calc(100% / 0.75);
-  min-height: calc(100vh / 0.75);
+  /* 1 / 0.75 = 1.333333... */
+  width: 133.333333%;
+  min-height: 133.333333vh;
+
+  /* helps Safari paint correctly */
+  -webkit-transform: scale(0.75);
+  -webkit-transform-origin: top center;
+  transform: translateZ(0) scale(0.75);
+  will-change: transform;
+  position: relative;
 }
 
