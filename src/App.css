@@ -37,19 +37,21 @@
   }
 }
 
+/* Default */
 .app-scale {
   transform: scale(0.75);
   transform-origin: top center;
-
-  /* 1 / 0.75 = 1.333333... */
   width: 133.333333%;
   min-height: 133.333333vh;
+}
 
-  /* helps Safari paint correctly */
-  -webkit-transform: scale(0.75);
-  -webkit-transform-origin: top center;
-  transform: translateZ(0) scale(0.75);
-  will-change: transform;
-  position: relative;
+/* Safari-only: use zoom fallback */
+@supports (-webkit-hyphens: none) and (not (hyphens: none)) {
+  .app-scale {
+    transform: none;
+    width: 100%;
+    min-height: 100vh;
+    zoom: 0.75;
+  }
 }
 
