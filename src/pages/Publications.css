@@ -1,0 +1,405 @@
+/* ===== Publications page ===== */
+.publications {
+  min-height: calc(100vh - var(--nav-height, 72px));
+  color: var(--text);
+  padding: 120px 22px 64px;
+
+  background:
+    radial-gradient(900px 500px at 20% 10%, var(--bg1), transparent 55%),
+    radial-gradient(900px 500px at 80% 20%, var(--bg2), transparent 55%),
+    radial-gradient(800px 520px at 50% 90%, var(--bg3), transparent 60%);
+
+  background-color: rgba(245, 245, 255, 0.65);
+}
+
+html[data-theme="dark"] .publications {
+  background-color: rgba(10, 10, 14, 1);
+}
+
+.publications-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--page-side-padding, 48px);
+}
+
+/* ===== Header ===== */
+.publications-header {
+  text-align: left;
+  margin-bottom: 22px;
+}
+/* Keep title and subtitle aligned + readable */
+.publications-title,
+.publications-subtitle {
+  max-width: 720px;
+}
+
+.publications-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+
+
+/* ===== List layout ===== */
+.publications-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+/* ===== Card ===== */
+.publication-card {
+  padding: 22px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft inner glow like your cards */
+.publication-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(520px 190px at 20% 0%, rgba(168,85,247,0.12), transparent 60%),
+    radial-gradient(520px 190px at 80% 0%, rgba(99,102,241,0.10), transparent 60%);
+  pointer-events: none;
+  opacity: 1;
+}
+
+.publication-title {
+  position: relative;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.publication-meta {
+  position: relative;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.publication-authors {
+  color: var(--text);
+  opacity: 0.95;
+}
+
+.publication-venue,
+.publication-year {
+  opacity: 0.9;
+}
+
+/* ===== Description ===== */
+.publication-desc {
+  position: relative;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 980px;
+}
+
+/* ===== Tags ===== */
+.publication-tags {
+  position: relative;
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.publication-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 12px;
+
+  font-size: 0.92rem;
+  font-weight: 800;
+
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.publication-tag:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(168,85,247,0.28);
+}
+
+/* ===== Link button ===== */
+.publication-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 14px;
+  text-decoration: none;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  font-weight: 900;
+  color: var(--text);
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.publication-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(168,85,247,0.28);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .publications {
+    padding: 90px 18px 70px;
+  }
+
+  .publication-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .publications-subtitle {
+    font-size: 1rem;
+  }
+
+  .publication-desc {
+    font-size: 1rem;
+  }
+}
+
+.publications-section-title {
+  margin: 26px 0 12px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.publication-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.publication-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+}
+
+.publication-date {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.publication-media {
+  margin-top: 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+}
+
+.publication-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Fix: make tags/pills readable in LIGHT mode ===== */
+html[data-theme="light"] .publication-tag,
+html[data-theme="light"] .publication-pill {
+  background: rgba(18, 18, 24, 0.06);        /* subtle dark tint */
+  border: 1px solid rgba(18, 18, 24, 0.14);  /* darker border */
+  color: rgba(18, 18, 24, 0.92);             /* readable text */
+}
+
+/* Hover state in light mode */
+html[data-theme="light"] .publication-tag:hover,
+html[data-theme="light"] .publication-pill:hover {
+  background: rgba(124, 58, 237, 0.10);      /* slight accent tint */
+  border-color: rgba(124, 58, 237, 0.22);
+}
+
+/* Also fix the link chip if it blends in */
+html[data-theme="light"] .publication-link {
+  background: rgba(18, 18, 24, 0.05);
+  border: 1px solid rgba(18, 18, 24, 0.14);
+  color: rgba(18, 18, 24, 0.92);
+}
+
+html[data-theme="light"] .publication-link:hover {
+  background: rgba(124, 58, 237, 0.10);
+  border-color: rgba(124, 58, 237, 0.22);
+}
+
+/* ===== Fix: make tags/pills readable in LIGHT mode ===== */
+html[data-theme="light"] .publication-tag,
+html[data-theme="light"] .publication-pill {
+  background: rgba(18, 18, 24, 0.06);        /* subtle dark tint */
+  border: 1px solid rgba(18, 18, 24, 0.14);  /* darker border */
+  color: rgba(18, 18, 24, 0.92);             /* readable text */
+}
+
+/* Hover state in light mode */
+html[data-theme="light"] .publication-tag:hover,
+html[data-theme="light"] .publication-pill:hover {
+  background: rgba(124, 58, 237, 0.10);      /* slight accent tint */
+  border-color: rgba(124, 58, 237, 0.22);
+}
+
+/* Also fix the link chip if it blends in */
+html[data-theme="light"] .publication-link {
+  background: rgba(18, 18, 24, 0.05);
+  border: 1px solid rgba(18, 18, 24, 0.14);
+  color: rgba(18, 18, 24, 0.92);
+}
+
+html[data-theme="light"] .publication-link:hover {
+  background: rgba(124, 58, 237, 0.10);
+  border-color: rgba(124, 58, 237, 0.22);
+}
+
+/* ===== Conferences: distinct look from papers ===== */
+.conferences-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Make conference cards slightly flatter + “badge” style */
+.conference-card {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove the purple/blue glow used in publication-card */
+.conference-card::before {
+  content: none;
+}
+
+.conference-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.conference-year {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.conference-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.conference-desc {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* Tags: slightly smaller + cleaner */
+.conference-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.conference-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Optional link style */
+.conference-link {
+  margin-top: 12px;
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 900;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.conference-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(168,85,247,0.24);
+}
+
+/* Light mode readability */
+html[data-theme="light"] .conference-card {
+  background: rgba(18,18,24,0.03);
+  border: 1px solid rgba(18,18,24,0.10);
+  box-shadow: 0 14px 34px rgba(18,18,24,0.08);
+}
+
+html[data-theme="light"] .conference-year,
+html[data-theme="light"] .conference-tag,
+html[data-theme="light"] .conference-link {
+  background: rgba(18,18,24,0.05);
+  border: 1px solid rgba(18,18,24,0.12);
+  color: rgba(18,18,24,0.92);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .conferences-grid {
+    grid-template-columns: 1fr;
+  }
+}

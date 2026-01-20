@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Global layout tokens */
+:root {
+  /* Side padding for pages. Increase this to add wider left/right margins site-wide. */
+  --page-side-padding: 48px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

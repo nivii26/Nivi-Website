@@ -1,0 +1,24 @@
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;  /* higher than navbar */
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.72);
+  color: rgba(18,18,24,0.92);
+
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(15,15,20,0.55);
+  color: rgba(255,255,255,0.95);
+}

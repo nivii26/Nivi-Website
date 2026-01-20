@@ -1,0 +1,421 @@
+:root {
+  /* DARK (default) */
+  --text: rgba(255,255,255,0.95);
+  --muted: rgba(255,255,255,0.82);
+
+  --card-bg: rgba(18, 18, 24, 0.55);
+  --card-border: rgba(255,255,255,0.14);
+  --card-shadow: 0 18px 45px rgba(0,0,0,0.35);
+
+  --pill-bg: rgba(255,255,255,0.10);
+  --pill-border: rgba(255,255,255,0.16);
+
+  --accent: #a855f7;
+  --accent2: #6366f1;
+
+  --bg1: rgba(168,85,247,0.28);
+  --bg2: rgba(99,102,241,0.22);
+  --bg3: rgba(236,72,153,0.10);
+}
+
+html[data-theme="light"] {
+  /* LIGHT */
+  --text: rgba(18,18,24,0.92);
+  --muted: rgba(18,18,24,0.70);
+
+  /* This is the key: NOT pure white. Keep translucent for “glass” */
+  --card-bg: rgba(255,255,255,0.62);
+  --card-border: rgba(20,20,28,0.10);
+  --card-shadow: 0 18px 45px rgba(18,18,24,0.10);
+
+  --pill-bg: rgba(255,255,255,0.55);
+  --pill-border: rgba(20,20,28,0.10);
+
+  --accent: #7c3aed;
+  --accent2: #4f46e5;
+
+  --bg1: rgba(124,58,237,0.20);
+  --bg2: rgba(79,70,229,0.16);
+  --bg3: rgba(236,72,153,0.08);
+}
+
+:root {
+  /* ...your existing vars */
+  --icon: rgba(255,255,255,0.92); /* dark default */
+}
+
+html[data-theme="light"] {
+  /* ...your existing vars */
+  --icon: rgba(18,18,24,0.92); /* light */
+}
+
+/* ===== Page layout ===== */
+.home {
+  /* Keep content below the sticky navbar by using the global --nav-height variable.
+     Fallback to 72px if the variable isn't set. */
+  min-height: calc(100vh - var(--nav-height, 72px));
+  color: var(--text);
+  padding: 120px 22px 64px;
+
+
+  background:
+    radial-gradient(900px 500px at 20% 10%, var(--bg1), transparent 55%),
+    radial-gradient(900px 500px at 80% 20%, var(--bg2), transparent 55%),
+    radial-gradient(800px 520px at 50% 90%, var(--bg3), transparent 60%);
+
+  /* subtle base tint so white mode isn’t stark */
+  background-color: rgba(245, 245, 255, 0.65);
+}
+
+html[data-theme="dark"] .home {
+  background-color: rgba(10, 10, 14, 1);
+}
+
+.home-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--page-side-padding, 48px);
+}
+
+/* ===== Pills ===== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+}
+
+/* ===== Cards ===== */
+
+.card {
+  border-radius: 24px;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: 18px;
+
+
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle inner glow */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(500px 180px at 20% 0%, rgba(168,85,247,0.14), transparent 60%),
+    radial-gradient(480px 180px at 80% 0%, rgba(99,102,241,0.12), transparent 60%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* lift on hover */
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(168,85,247,0.22);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+
+.hero-card {
+  padding: 32px;
+}
+
+/* Glow blobs */
+.glow-purple,
+.glow-blue {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.glow-purple {
+  inset: -120px auto auto -140px;
+  width: 320px;
+  height: 320px;
+  background: rgba(168,85,247,0.28);
+  filter: blur(60px);
+}
+
+.glow-blue {
+  inset: auto -140px -160px auto;
+  width: 360px;
+  height: 360px;
+  background: rgba(99,102,241,0.22);
+  filter: blur(70px);
+}
+
+/* ===== Grid ===== */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.right-column {
+  display: grid;
+  gap: 16px;
+}
+
+/* ===== Typography ===== */
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #a855f7, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  margin-top: 14px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
+  max-width: 720px;
+}
+
+/* ===== Buttons ===== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.95rem 1.15rem;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.10);
+  color: var(--text);
+  text-decoration: none;
+
+  font-weight: 700;
+  font-size: 1rem;
+
+  transition: transform 180ms ease, filter 180ms ease, background 180ms ease;
+}
+
+.button.primary {
+  border: 1px solid rgba(168,85,247,0.35);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+
+/* ===== CTA + highlights ===== */
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.highlight-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* ===== Bottom section ===== */
+.bottom-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.card-text {
+  margin-top: 8px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.6;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .home {
+    padding-top: 28px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-description,
+.card-text {
+  color: var(--muted);
+}
+
+/* ===== Minimal Home overrides ===== */
+/* ===== Centered big hero ===== */
+.home-min {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+
+  /* was too big: 140px */
+  padding: 20px 22px 70px;
+}
+
+
+.home-min .home-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-min-grid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* make the hero card larger */
+.hero-min {
+  width: min(1200px, 94vw);   /* wider card */
+  padding: 72px;              /* more internal space */
+  border-radius: 34px;
+}
+
+
+/* bigger title */
+.hero-min-title {
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+/* typewriter size */
+/* FORCE typewriter to be hero-sized */
+.hero-min-type .typewriter {
+  margin-top: 40px; 
+  font-size: clamp(1.3rem, 3.0vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+
+/* slightly tighter and more readable */
+.hero-min-desc {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  margin-top: 14px;
+  max-width: 680px;
+}
+
+/* CTA row spacing */
+.hero-min-cta {
+  margin-top: 24px;
+  gap: 14px;
+}
+
+/* make buttons feel more premium */
+.hero-min-cta .button {
+  padding: 1.05rem 1.3rem;
+  border-radius: 18px;
+  font-size: 1.05rem;
+}
+
+/* optional: soften secondary buttons to look lighter than primary */
+.hero-min-cta .button:not(.primary) {
+  background: rgba(255,255,255,0.14);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .home-min {
+    padding: 90px 18px 70px;
+  }
+  .hero-min {
+    padding: 34px;
+    border-radius: 24px;
+  }
+}
+
+
+.social-row {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+
+}
+
+.social-row a {
+  width: 48px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.social-row a:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(124, 77, 255, 0.35);
+}
+
+.social-row img {
+  width: 20px;
+  height: 22px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+
+.social-row .homepage-social-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--icon);   /* <-- THIS drives currentColor */
+  opacity: 0.95;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* dark mode: white icons */
+@media (prefers-color-scheme: dark) {
+  .social-row .homepage-social-icon {
+    color: #fff;
+    opacity: 0.9;
+  }
+}
+

@@ -1,0 +1,25 @@
+.typewriter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.typewriter-text {
+  font-weight: 800;
+  font-size: inherit;          /* inherit from parent */
+  line-height: 1.1;
+}
+
+.typewriter-cursor {
+  font-size: inherit;          /* SAME size as text */
+  line-height: 1.1;            /* same line-height */
+  font-weight: 800;            /* match weight too */
+  color: #a855f7;
+  animation: blink 0.9s step-end infinite;
+  transform: translateY(1px);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
