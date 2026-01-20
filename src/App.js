@@ -10,6 +10,7 @@ import Publications from "./pages/Publications";
 
 export default function App() {
   return (
+    <div className="app-scale">
     <BrowserRouter>
       <Navbar />
       <ThemeToggle />
@@ -21,5 +22,6 @@ export default function App() {
         <Route path="/publications" element={<Publications />} />
       </Routes>
     </BrowserRouter>
+    </div>
   );
 }

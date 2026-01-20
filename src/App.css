@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.app-scale {
+  transform: scale(0.75);
+  transform-origin: top center;
+
+  width: calc(100% / 0.75);
+  min-height: calc(100vh / 0.75);
+}
+
