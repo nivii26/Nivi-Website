@@ -263,34 +263,16 @@ html[data-theme="dark"] .home {
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .home {
-    padding: 80px 12px 40px;
-  }
-
-  .home-container {
-    padding: 0 20px;
+    padding-top: 28px;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
   }
 
   .bottom-grid {
     grid-template-columns: 1fr;
   }
-
-  .card {
-    padding: 14px;
-  }
-
-  .hero-media { display: none; }
-}
-
-/* Smaller phones */
-@media (max-width: 420px) {
-  .hero-title { font-size: 1.6rem; }
-  .hero-description { font-size: 0.95rem; }
-  .button { width: 100%; padding: 12px 14px; }
 }
 
 .hero-description,

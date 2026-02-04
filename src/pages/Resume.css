@@ -15,9 +15,9 @@ html[data-theme="dark"] .resume {
 }
 
 .resume-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--page-side-padding, 48px);
+  padding: 0 var(--page-side-padding, 28px);
 }
 
 .resume-header {

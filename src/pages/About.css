@@ -390,31 +390,9 @@ html[data-theme="dark"] .education-logo {
   .education-logo-big {
     margin: 0 auto 12px;
   }
-}
-
-/* Mobile: stack main about grid and reduce paddings */
-@media (max-width: 900px) {
-  .about {
-    padding: 80px 12px 56px;
+  .education-logo-big-sg {
+    margin: 0 auto 12px;
   }
-
-  .about-container {
-    padding: 0 20px;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .about-photo { height: 320px; }
-  .card { padding: 14px; }
-  .about-mini { display: none; }
-}
-
-@media (max-width: 420px) {
-  .about-title { font-size: 1.6rem; }
-  .section-text { font-size: 0.95rem; }
 }
 
 /* Grid to place education cards side-by-side */

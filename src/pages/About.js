@@ -115,7 +115,7 @@ export default function About() {
         <p className="education-degree">
           Bachelor’s in Data Science and Analytics <br />
           Minor in Computer Science <br />
-          Graduated with Honours
+          Graduated with Honors
         </p>
 
         <p className="education-meta">Singapore</p>

@@ -12,7 +12,7 @@ export default function Resume() {
 
           <div className="resume-actions">
             <a
-              href="/Niveditha-Nerella-Resume-SC.pdf"
+              href="/Niveditha-Nerella-Resume-SC.pdf#zoom=100"
               target="_blank"
               rel="noopener noreferrer"
               className="button primary"
@@ -21,7 +21,7 @@ export default function Resume() {
             </a>
 
             <a
-              href="/Niveditha-Nerella-Resume-SC.pdf"
+              href="/Niveditha-Nerella-Resume-SC.pdf#zoom=100"
               download
               className="button"
             >
@@ -34,7 +34,7 @@ export default function Resume() {
         <div className="card resume-frame">
           <iframe
             title="Niveditha Nerella Resume"
-            src="/Niveditha-Nerella-Resume-SC.pdf"
+            src="/Niveditha-Nerella-Resume-SC.pdf#zoom=133"
             className="resume-iframe"
           />
         </div>
