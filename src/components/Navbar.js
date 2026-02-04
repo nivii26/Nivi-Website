@@ -64,12 +64,13 @@ export default function Navbar() {
             </NavLink>
           ))}
         </div>
-        {/* centered brand/title */}
-        {/* <div className="nav-brand">
+        {/* centered brand/title (visible on mobile) */}
+        <div className="nav-brand" aria-hidden={open ? "true" : "false"}>
           <NavLink to="/" className="nav-item nav-brand-link">
-            Nivi
+            <img src="/WebsiteLogo.png" alt="Nivi logo" className="nav-brand-logo" />
+            <span className="nav-brand-text">Nivi</span>
           </NavLink>
-        </div> */}
+        </div>
       </nav>
 
       {open && (

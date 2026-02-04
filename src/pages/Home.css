@@ -263,7 +263,7 @@ html[data-theme="dark"] .home {
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
   .home {
-    padding-top: 28px;
+    padding-top: 2px;
   }
 
   .hero-grid {

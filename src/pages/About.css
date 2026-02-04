@@ -173,7 +173,8 @@ html[data-theme="dark"] .about-photo {
 /* Responsive */
 @media (max-width: 900px) {
   .about {
-    padding: 110px 18px 70px;
+    /* reduce top padding on mobile so content sits closer to the navbar */
+    padding: 64px 18px 70px;
   }
 
   .about-grid {

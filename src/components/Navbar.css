@@ -21,7 +21,8 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* center the nav links on wider screens; mobile rules keep space-between */
+  justify-content: center;
   gap: 56px;
 }
 
@@ -37,6 +38,9 @@
   transform: translateX(-50%);
   pointer-events: auto;
 }
+
+/* Hide the centered brand on wide screens; show it on mobile (below media query) */
+.nav-brand { display: none; }
 
 .nav-brand-link{
   font-weight: 800;
@@ -177,6 +181,12 @@
   /* hide desktop links and show hamburger toggle */
   .nav-links { display: none; }
   .nav-toggle { display: inline-flex; }
+
+  /* show centered brand (logo + name) on mobile */
+  .nav-brand { display: flex; align-items: center; gap: 8px; }
+  .nav-brand-link { display: inline-flex; align-items: center; gap: 8px; }
+  .nav-brand-logo { width: 22px; height: 28px; object-fit: contain; border-radius: 6px; }
+  .nav-brand-text { font-weight: 800; font-size: 1rem; color: rgba(19,18,18,0.95); }
 
   .nav-item {
     font-size: 16px;
