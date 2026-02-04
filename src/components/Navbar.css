@@ -2,6 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 3000;
+  /* expose a variable for the nav height so the mobile menu can sit below it */
+  --nav-height: 72px;
 
   /* prevents overlap visually */
   background: rgba(245, 245, 255, 0.78);
@@ -15,6 +17,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 18px var(--page-side-padding, 28px);
+  position: relative; /* allow absolute centering of brand */
 
   display: flex;
   align-items: center;
@@ -26,6 +29,20 @@
   display: flex;
   gap: 26px;
   align-items: center;
+}
+
+.nav-brand{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.nav-brand-link{
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: rgba(19,18,18,0.95);
+  text-decoration: none;
 }
 
 .nav-toggle{
@@ -150,8 +167,11 @@
 @media (max-width: 860px) {
   .nav-inner {
     justify-content: space-between;
-    gap: 12px;
-    padding: 12px 16px;
+    gap: 8px;
+    /* make the nav bar taller on mobile for easier tapping and visual space */
+    padding: 27px 16px;
+    /* increase the nav height variable so the mobile menu is positioned below the taller bar */
+    --nav-height: 88px;
   }
 
   /* hide desktop links and show hamburger toggle */

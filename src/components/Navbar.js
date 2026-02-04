@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { HiOutlineHome } from "react-icons/hi2";
 import { FiUser, FiFileText } from "react-icons/fi";
@@ -13,24 +14,81 @@ export default function Navbar() {
     { to: "/resume", label: "Resume", icon: <FiFileText /> },
     { to: "/publications", label: "Conferences & Research", icon: <MdOutlineAutoStories /> },
   ];
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    function onDocClick(e) {
+      if (!containerRef.current) return;
+      if (!containerRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    function onKey(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("touchstart", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("touchstart", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   return (
-    <header className="nav-wrap">
+    <header className="nav-wrap" ref={containerRef}>
       <nav className="nav-inner">
-        {links.map((l) => (
-          <NavLink
-            key={l.to}
-            to={l.to}
-            end={l.to === "/"}
-            className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}
-          >
-            <span className="nav-icon" aria-hidden="true">
-              {l.icon}
-            </span>
-            <span className="nav-text">{l.label}</span>
+       <button
+          className="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+          onClick={() => setOpen((s) => !s)}
+        >
+          <span className={`hamburger ${open ? "open" : ""}`} aria-hidden="true"></span>
+        </button>
+       
+
+        <div className="nav-links">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}
+              onClick={() => setOpen(false)}
+            >
+              <span className="nav-icon" aria-hidden="true">{l.icon}</span>
+              <span className="nav-text">{l.label}</span>
+            </NavLink>
+          ))}
+        </div>
+        {/* centered brand/title */}
+        {/* <div className="nav-brand">
+          <NavLink to="/" className="nav-item nav-brand-link">
+            Nivi
           </NavLink>
-        ))}
+        </div> */}
       </nav>
+
+      {open && (
+        <div id="mobile-menu" className="mobile-menu" role="menu">
+          {links.map((l) => (
+            <NavLink
+              key={l.to}
+              to={l.to}
+              end={l.to === "/"}
+              className={({ isActive }) => `nav-item-mobile ${isActive ? 'active' : ''}`}
+              onClick={() => setOpen(false)}
+              role="menuitem"
+            >
+              <span className="nav-icon" aria-hidden="true">{l.icon}</span>
+              <span className="nav-text">{l.label}</span>
+            </NavLink>
+          ))}
+        </div>
+      )}
     </header>
   );
 
